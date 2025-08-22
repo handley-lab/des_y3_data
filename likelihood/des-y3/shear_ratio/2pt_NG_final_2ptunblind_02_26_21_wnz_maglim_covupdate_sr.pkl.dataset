@@ -1,0 +1,47 @@
+# DES Y3 Shear Ratio likelihood dataset configuration
+# This follows the standard Cobaya .dataset format
+
+data_file = likelihood/des-y3/shear_ratio/2pt_NG_final_2ptunblind_02_26_21_wnz_maglim_covupdate_sr.pkl
+sacc_file = likelihood/des-y3/y3_5x2_maglim_UNBLIND_07202021_120721_bestfit3x2.fits
+
+# Angular scale cuts (arcmin) - different minimum scales for each lens bin
+theta_min_1_0 = 6.0
+theta_min_1_1 = 4.0  
+theta_min_1_2 = 4.0
+
+theta_min_2_0 = 6.0
+theta_min_2_1 = 4.0
+theta_min_2_2 = 4.0
+
+theta_min_3_0 = 6.0
+theta_min_3_1 = 4.0
+theta_min_3_2 = 4.0
+
+theta_min_4_0 = 6.0
+theta_min_4_1 = 4.0
+theta_min_4_2 = 4.0
+
+theta_min_5_0 = 6.0
+theta_min_5_1 = 4.0
+theta_min_5_2 = 4.0
+
+# Maximum angular scales for each lens bin
+theta_max_1 = 250.0
+theta_max_2 = 250.0 
+theta_max_3 = 250.0
+theta_max_4 = 250.0
+theta_max_5 = 250.0
+
+# Theory calculation options
+bin_avg = T
+l_max = 2500
+acc = 1e-3
+binned_bessels = T
+use_hankel = F
+
+# Grid settings
+z_max = 4.0
+z_steps = 200
+k_min = 1e-4
+k_max = 50.0
+k_steps = 700
