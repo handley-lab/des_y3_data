@@ -4,12 +4,15 @@ This repository contains data files for the DES Y3 cosmological analysis likelih
 
 ## Contents
 
-### For 3x2pt Analysis (`des_y3.three_by_two`)
-- `likelihood/des-y3/y3_5x2_maglim_UNBLIND_07202021_120721_bestfit3x2.fits`
-  - SACC-format FITS file containing 3x2pt data vectors, covariances, and tracers (n(z))
-  - Used for the combined galaxy clustering + galaxy-galaxy lensing + cosmic shear analysis
+### For 3x2pt Analysis (`des_y3_csl.three_by_two`)
+- `likelihood/des-y3/2pt_NG_final_2ptunblind_02_24_21_wnz_covupdate.v2.fits`
+  - DES Y3 TwoPoint FITS for the main sample (used by CSL 2pt_like)
+- `likelihood/des-y3/2pt_NG_final_2ptunblind_02_26_21_wnz_maglim_covupdate.fits`
+  - DES Y3 TwoPoint FITS for the maglim sample (optional)
+- `examples/des-y3-scale-cuts.ini`
+  - Scale cuts used in DES Y3 analyses (parsed by the CSL likelihood)
 
-### For Shear Ratio Analysis (`des_y3.shear_ratio`) 
+### For Shear Ratio Analysis (`des_y3_csl.shear_ratio`) 
 - `likelihood/des-y3/shear_ratio/2pt_NG_final_2ptunblind_02_26_21_wnz_maglim_covupdate_sr.pkl`
   - Pickled Python object containing measured shear ratios, covariances, and angular bins
   - Used for the tangential shear ratio likelihood
@@ -17,14 +20,21 @@ This repository contains data files for the DES Y3 cosmological analysis likelih
 ## Data Provenance
 
 **Original Source**: CosmoSIS Standard Library  
-**Original Location**: `cosmosis-standard-library/likelihood/des-y3/`  
-**Extraction Date**: August 22, 2025  
+**Original Location**: `cosmosis-standard-library/likelihood/des-y3/` and `cosmosis-standard-library/examples`  
+**Extraction Date**: August 2025  
 **Purpose**: Testing DES Y3 likelihood implementation in Cobaya
 
 ### File Checksums (SHA256)
 
 ```
-d861b20a4edc59df55248be992dc0bda100363f194ea0abe0c4a5837683c2ff7  likelihood/des-y3/y3_5x2_maglim_UNBLIND_07202021_120721_bestfit3x2.fits
+# TwoPoint FITS (main)
+a72a8ee02fa72474ad859edab27d946991901e3d9a5bdc95cc9a961b244a32a6  likelihood/des-y3/2pt_NG_final_2ptunblind_02_24_21_wnz_covupdate.v2.fits
+
+# TwoPoint FITS (maglim)
+83efa43f6609ff07248b9c4e411b9ab386ec569cba402364fb21edff456e8b76  likelihood/des-y3/2pt_NG_final_2ptunblind_02_26_21_wnz_maglim_covupdate.fits
+
+# Shear ratio pickles
+08e22c501a4f2d12bb2205ed46650d2d772064cd6e5a7d68af1021fd68e628c5  likelihood/des-y3/shear_ratio/2pt_NG_final_2ptunblind_02_24_21_wnz_covupdate_sr.pkl
 bc3c9d16a879f4809478b7c3ff59485ea90c34bdb620bdd7594037ead783b4e1  likelihood/des-y3/shear_ratio/2pt_NG_final_2ptunblind_02_26_21_wnz_maglim_covupdate_sr.pkl
 ```
 
@@ -36,12 +46,12 @@ These data products correspond to the DES Year 3 cosmological analysis:
 
 ## Usage in Cobaya
 
-This data package is automatically downloaded when running:
+This data package is intended to be downloaded automatically when running:
 
 ```bash
-cobaya-install des_y3.shear_ratio
+cobaya-install des_y3_csl.shear_ratio
 # or
-cobaya-install des_y3.three_by_two  
+cobaya-install des_y3_csl.three_by_two  
 ```
 
 The likelihoods reference these files using the `{path}` variable in their YAML configurations.
